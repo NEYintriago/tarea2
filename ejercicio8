@@ -1,0 +1,382 @@
+// Se desea realizar una estadistica de los pesos de los alumnos
+//de la UNEMI de acuerdo a la siguiente tabla
+//alumnos de menos 40 kg
+//alumnos entre 40 y 50 kg
+//alumnos mas de 50 y menos de 60 kg
+//alumnos mas de 60 kg.
+//La entrada de los pesos se terminará cuando se ingrese el valor
+//de peso cero. Al final deberá presentar cuantos alumnos hay por
+//rengo de pesos y el promedio de cada rango
+//entrada : inicializamos las variables 
+//proceso definimos las variables 
+// salida :con la salida de datos 
+funcion pese_alumnos 
+	definir peso como real;
+	definir contador_menos_40 como entero;
+	definir contador_40_50 como  entero;
+	definir contador_50_60 como  entero;
+	definir contador_mas_60 como entero;
+	definir suma_menos_40 como  real;
+	definir suma_40_50 como real;
+	definir suma_50_60 como  real;
+	definir suma_mas_60 como real;
+	
+	// Inicializar variables
+	contador_menos_40 = 0;
+	contador_40_50 = 0;
+	contador_50_60 = 0;
+	contador_mas_60 = 0;
+	suma_menos_40 = 0;
+	suma_40_50 = 0;
+	suma_50_60 = 0;
+	suma_mas_60 = 0
+	escribir ("Ingrese el peso del alumno: ");
+	leer peso 
+	// Repetir el proceso hasta que se ingrese un peso de cero
+	mientras peso <> 0 hacer
+		escribir ("Ingrese el peso del alumno: ");
+		leer peso 
+		// Asignar el peso al rango correspondiente
+		si peso < 40 entonces
+			contador_menos_40 = contador_menos_40 + 1;
+			suma_menos_40 = suma_menos_40 + peso;
+		sino si peso >= 40 y peso < 50 entonces
+				contador_40_50 = contador_40_50 + 1;
+				suma_40_50 = suma_40_50 + peso;
+			sino si peso >= 50 y peso < 60 entonces
+					contador_50_60 = contador_50_60 + 1;
+					suma_50_60 = suma_50_60 + peso;
+				sino
+					contador_mas_60 = contador_mas_60 + 1;
+					suma_mas_60 = suma_mas_60 + peso;
+				fin si
+				
+				// Leer el siguiente peso
+				escribir "Ingrese el peso del alumno: "
+				leer peso 
+			fin si 
+		fin si 
+		
+	fin mientras
+	
+	// Imprimir los resultados
+	escribir "Cantidad de alumnos de menos de 40 kg: ", contador_menos_40
+	si contador_menos_40 > 0 entonces
+		escribir "Promedio de alumnos de menos de 40 kg: ", suma_menos_40 / contador_menos_40
+	fin si
+	
+	escribir "Cantidad de alumnos entre 40 y 50 kg: ", contador_40_50
+	si contador_40_50 > 0 entonces
+		escribir "Promedio de alumnos entre 40 y 50 kg: ", suma_40_50 / contador_40_50
+	fin si
+	
+	escribir "Cantidad de alumnos entre 50 y 60 kg: ", contador_50_60
+	si contador_50_60 > 0 Entonces
+		
+		escribir"Promedio de alumnos entre 50 y 60 kg: ", suma_50_60 / contador_50_60
+	fin si
+	
+	escribir "Cantidad de alumnos de más de 60 kg: ", contador_mas_60
+	si contador_mas_60 > 0 Entonces
+		
+		escribir "Promedio de alumnos de más de 60 kg: ", suma_mas_60 / contador_mas_60
+	fin si 
+
+		
+		
+	
+FinFuncion
+
+
+// Se requiere un algoritmo para obtener la estatura promedio de un grupo de personas, cuyo
+//		número de personas se desconoce, el ciclo debe efectuarse siempre y cuando se tenga una
+//		estatura registrada.
+// entrada: x como contador definir las variables estatura=leida 
+//suma=calculoada 
+//Proceso :ingresamos la variables 
+//estatura y hacemos el proceso :de suma =suma+estatura
+//salida al fina  sacamos el promedio de las esta
+
+funcion ejercicio2
+	
+	definir x , total   como entero 
+	definir estatura, suma como real
+	escribir " ingrse el numuero  de personas "
+	leer total 
+	x=1
+	suma=0
+	Mientras x <= total Hacer
+		escribir "ingrese la estatura "
+		leer estatura 
+		suma=suma + estatura
+		x=x+1
+	Fin Mientras
+	Escribir " la estatura promedio es " , suma/total 
+	
+	
+FinFuncion
+//30) Un empleado de la tienda "Somos Más" realiza N ventas durante el día, se requiere saber
+//cuántas de ellas fueron mayores a $1000, cuántas de ellas fueron mayores a $500 pero menores
+//o iguales a $1000, y cuantas fueron menores o iguales a $500. Además, se requiere saber el
+//monto de lo vendido en cada categoría y de forma global. Realizar un algoritmo
+//entrada inicializamos las variables  
+//proceso utlizamos un  mientras para  contar el numero de ventas 
+//salida mostramos el proceso de ventas 
+Funcion ejercicio3
+	Escribir "**** somos mas****"
+	definir x,b,a,c,n como entero 
+	definir venta, total1,total2,total3 como real 
+	escribir " ingresa el numero de ventas "
+	leer n
+	x=1
+	total1=0;a=0;total2=0;b=0;total3=0;c=0;
+	Mientras x <= n  Hacer
+		escribir " ingresa el total de la ventas " , x 
+		leer venta 
+		si  venta >1000 Entonces
+			total1=total2 + venta 
+			a=a+1
+		sino 
+			si venta> 500 Entonces
+				total2=total2+ venta 
+				b=b+1
+			sino 
+				total3=total3 +venta 
+				c=c+1
+			FinSi
+			
+		FinSi
+		x=x+1
+	Fin Mientras
+	
+	escribir " las ventas mayores a 1000 son " ,a ,   "el total de la venta  es ", total1
+	escribir "las ventas mayores a 500 pero menores a 1000 es " ,b ,   "  el total de la venta es;" , total2
+	escribir " las ventas menoreso igual a 500 es ",c, "   el total de la venta es :" total3
+	
+	
+FinFuncion
+
+//  Se dispone de las calificaciones de n alumnos del primer semestre
+//de la carrera de software de la unemi. Se tiene la nota final y la asignatura
+//('logica','requerimientos','calculos'). Se pide el promedio de
+//cada asignatura y el promedio general de todas las asignaturas de los
+//alumnos del primer semestre
+// entrada inicializamos las variables 
+// proceso :ingrsesamos las variables 
+//salida mostramos el proceso del promedio general 
+funcion ejercicio4
+definir n como entero
+definir nota,i como real
+definir asignatura como cadena
+definir promedio_logica como real
+definir promedio_requerimiento como real
+definir promedio_calculo como  real
+definir promedio_general como  real
+
+// Inicializar variables
+promedio_logica = 0;
+promedio_requerimiento = 0;
+promedio_calculo = 0;
+promedio_general = 0;
+
+// Leer la cantidad de alumnos
+escribir "Ingrese la cantidad de alumnos: "
+leer n
+
+// Repetir el proceso n veces
+para i = 1 hasta n hacer
+	
+	// Leer la nota y la asignatura del alumno
+	escribir "Ingrese la nota del alumno: "
+	leer nota 
+	escribir "Ingrese la asignatura del alumno: "
+	leer asignatura 
+	
+	// Asignar la nota a la asignatura correspondiente
+	si asignatura == "logica" entonces
+		promedio_logica = promedio_logica + nota;
+	sino si asignatura == "requerimiento" entonces
+			promedio_requerimiento = promedio_requerimiento + nota;
+		sino
+			promedio_calculo = promedio_calculo + nota;
+		fin si
+	fin si 
+fin para
+
+// Calcular el promedio de cada asignatura
+promedio_logica = promedio_logica / n;
+promedio_requerimiento = promedio_requerimiento / n;
+promedio_calculo = promedio_calculo / n;
+
+// Calcular el promedio general
+promedio_general = (promedio_logica + promedio_requerimiento + promedio_calculo) / 3;
+
+// Imprimir los resultados
+escribir "Promedio de lógica: ", promedio_logica
+escribir "Promedio de requerimiento: ", promedio_requerimiento
+escribir "Promedio de cálculos: ", promedio_calculo
+escribir "Promedio general: ", promedio_general
+fin funcion  
+//3 Se dispone de los sueldos y categorias de los profesores de la unemi.
+//segun la categoria estos reciben un bono adicional de porcentaje al sueldo:
+//			categoria="Auxiliar" incremento del 10%
+//			categoria="Agregado" incremento del 20%
+//			categoria="principal" incremento del 50%
+//			Se pide obtener el promedio de los sueldos y del bono de cada categoria
+//			El programa termina cuando se ingresa una categoria inexistente
+// entrada definimos las variables 
+//proceso ingresesamos la variables 
+// salida  mostramos el proceso 
+	funcion ejercicio5
+		definir sueldo como real
+		definir categoria como cadena 
+		definir bono como real 
+		definir promedio_sueldo como real 
+		definir promedio_bono Como real
+		promedio_sueldo=0;promedio_bono=0; 
+	
+		escribir " ingrese el sueldo del profesor " 
+		leer sueldo
+		
+		Escribir " ingrse la categoria del profesor " 
+		leer categoria
+		
+		Mientras categoria  != "inexistente" Hacer
+			si categoria== "auxiliar" Entonces
+				bono=sueldo*0.10
+			sino 
+				si categoria== "agregado " Entonces 
+					bono=sueldo*0.20
+				SiNo
+					si categoria==" principal" Entonces
+						
+						bono=sueldo*0.50
+					FinSi
+				FinSi
+			fin si
+			// Actualizar el promedio del sueldo
+			promedio_sueldo = promedio_sueldo + sueldo
+			// Actualizar el promedio del bono
+			promedio_bono = promedio_bono + bono;
+		escribir " ingrese el sueldo del profesor "
+			leer sueldo 
+	Escribir " ingrese la categoria del profesor"
+		leer categoria 
+			escribir "Promedio de los sueldos: ", promedio_sueldo
+			escribir "Promedio de los bonos: ", promedio_bono 
+		FinMientras
+		
+		
+		
+		
+FinFuncion
+//33) Dado una serie de n cantidad de viajes dado cada pasaje y su recorrido determinar
+//el precio de cada pasaje segun el recorrido en kilometros
+//		si el recorrido es hasta 100 km el pasaje no tiene incremento
+//			si el reccorido es mas de 100 km el pasaje tiene un incremento
+//				del 20%. Presentar el promedio y la cantidad de pasajes con recorrido
+//				hasta 100km y mayor de 100 km.
+//entrada  n = leida precio=leida  incremento=leida   recorrido=leida  promedio=leida 
+//proceso inicializamos las variables 
+//salida mostramos los datos 
+
+	
+funcion ejercicio6
+	definir n como entero 
+	definir precio , incremento ,recorrido,i, promedio como real 
+	Escribir " ingrese la cantidad de viaje " 
+	leer n 
+	escribir " ingrese el promedio" 
+	Leer promedio
+	precio=0;incremento=0.20;
+	para i =1 hasta n hacer 
+		Escribir " ingrse el recorrido en " "km"
+		leer recorrido
+		si recorrido =100 entonces 
+			precio=100 
+		sino 
+			precio=100+(recorrido-100)*incremento
+		FinSi
+		si recorrido <= 100 entonces 
+			incremento=incremento+1
+		FinSi
+	FinPara
+
+	promedio=promedio/n
+
+escribir " El promedio de los pasajes es:" , promedio
+Escribir "Cantidad de pasajes con recorrido hasta 100 km: ", incremento
+escribir "cantidad de pasajes con recorrido mayor a 100 km: ", n - incremento
+FinFuncion
+
+
+//4) Diseñar un algoritmo que lea y presente una serie de números distintos de
+//	cero. El algoritmo debe terminar con un valor cero que no se debe presentar.
+//		Finalmente se desea obtener la cantidad y el promedio de los valores distintos
+//		de cero
+//entrada   contador=calculada  suma=calculda  numer= leida   promedio=leida 
+// proces inicializamos las variables 
+//salida mostras los datos de mi algoritmo
+funcion ejercicio7
+
+Definir contador, suma, numer, promedio Como real
+contador= 0
+suma= 0
+
+Escribir "Ingrese una serie de números distintos de cero. Ingrese 0 para finalizar."
+Leer numer
+Mientras numer <> 0 Hacer
+	contador <- contador + 1
+	suma <- suma + numer
+	Leer numer
+Fin Mientras
+
+Si contador > 0 Entonces
+	promedio= suma / contador
+	Escribir "Cantidad de valores distintos de cero:", contador
+	Escribir "Promedio de los valores distintos de cero:", promedio
+Fin Si
+FinFuncion
+//Dada una serie de números positivos lea y presente el numero.
+//El algoritmo debe terminar con un valor negativo que no se debe presentar.
+//	Finalmente se desea obtener la cantidad y el total de los números positivos
+//	múltiplos de 3
+//entrada n=leida cantidad =calculada total = calculada 
+//proceso  inicializamos las variables 
+//salida  mostramos los datos 
+funcion ejercicio8
+	
+	definir n , cantidad ,numero como entero 
+	Definir total como real 
+	cantidad = 0 
+	total=0
+	escribir "ingrse un numero positivo "
+	leer numero
+	
+	mientras numero >=  0 hacer
+		si numero% 3 = 0 Entonces
+			cantidad=cantidad+1
+			total=total+numero
+		FinSi
+		
+		leer numero
+	FinMientras
+	
+	escribir " la cantida y el total de los numero multiplos de 3       " ,cantidad
+	escribir " el total de numeros multiplos de 3" , total
+	
+	
+	
+	
+FinFuncion
+
+Algoritmo tarea2 
+	//pese_alumnos
+	//ejercicio2
+	//ejercicio3
+	//ejercicio4
+	//ejercicio5
+	//ejercicio6
+	//ejercicio7
+	//ejercicio8
+FinAlgoritmo
